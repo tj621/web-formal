@@ -1,0 +1,59 @@
+.box-left{
+	margin: 0px;
+	padding: 10px;
+	height:200;
+	width: 35%;
+	float: left;
+}
+.box-right{
+	margin: 0px;
+	padding: 10px 10px 10px 50px;
+	height:200;
+	width: 65%;
+	float: right;
+}
+.box{
+	 font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  width:100%;
+  border-collapse:collapse;
+  padding: 15px;
+  text-align:center;
+  vertical-align:bottom;
+  table-layout:auto;
+}
+
+td{
+	width: 20%;
+
+
+}
+
+
+
+
+
+@media screen and (max-width:767px){
+.box-left {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+}
+
+@media screen and (max-width:767px){
+.box-right {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+}
+
+@media screen and (max-width:767px){
+.box{
+	padding: 0px;
+	margin: 0px;
+
+}
+}

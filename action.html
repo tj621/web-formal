@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>action</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/flat-ui.css" rel="stylesheet">
+<link href="css/diy.css" rel="stylesheet">
+<link rel="shortcut icon" href="img/favicon.ico">
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/flat-ui.min.js"></script>
+<script src="assets/js/application.js"></script>
+
+  </head>
+  <body>
+    <div class="container" ng-app="myApp" ng-controller="customersCtrl">
+   <h3> 温室 <small>tongji</small></h3>
+      <div class="row">
+        <div class="col-xs-12">
+          <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                <span class="sr-only">Toggle navigation</span>
+              </button>
+              <a class="navbar-brand" href="indoor.html">首页</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-01">
+              <ul class="nav navbar-nav navbar-left">
+                    <li><a href="indoor.html">室内外数据</a></li>
+                    <li><a href="action.html">执行机构</a></li>
+                    <li><a href="diagraph.html">图表</a></li>
+                    <li><a href="#">关于</a></li>
+                  </ul>
+
+               
+               <ul class="nav navbar-nav navbar-right">
+                <li><a href="login.html"><span class="fui-user"></span>登录</a></li>
+                  
+                      
+              </ul> 
+            </div><!-- /.navbar-collapse -->
+          </nav><!-- /navbar -->
+        </div>
+      </div> <!-- /row -->
+
+<h4 class="demo-panel-title">控制机构</h4>
+<div class="row">
+        <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="roofsouth"  value='{"roof_vent_south":"on"}' data-toggle="radio" ng-change="postdata(roofs)" ng-model="roofs">
+            天窗南开
+          </label>
+          <label class="radio">
+            <input type="radio" name="roofsouth"  value='{"roof_vent_south":"off"}' data-toggle="radio" ng-change="postdata(roofs)" ng-model="roofs">
+           天窗南关
+          </label>
+          <label class="radio">
+            <input type="radio" name="roofsouth"  value='{"roof_vent_south":"stop"}' data-toggle="radio" ng-change="postdata(roofs)" ng-model="roofs">
+           天窗南停
+          </label>
+      </div>
+
+      <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="roofnorth"  value='{"roof_vent_north":"on"}' data-toggle="radio" ng-change="postdata(roofn)" ng-model="roofn">
+            天窗北开
+          </label>
+          <label class="radio">
+            <input type="radio" name="roofnorth"  value='{"roof_vent_north":"off"}' data-toggle="radio" ng-change="postdata(roofn)" ng-model="roofn">
+           天窗北关
+          </label>
+          <label class="radio">
+            <input type="radio" name="roofnorth"  value='{"roof_vent_north":"stop"}' data-toggle="radio" ng-change="postdata(roofn)" ng-model="roofn">
+           天窗北停
+          </label>
+      </div>
+
+      <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="sidevent"  value='{"side_vent":"on"}' data-toggle="radio" ng-change="postdata(side)" ng-model="side">
+            侧卷帘开
+          </label>
+          <label class="radio">
+          <input type="radio" name="sidevent"  value='{"side_vent":"off"}' data-toggle="radio" ng-change="postdata(side)" ng-model="side">
+           侧卷帘关
+          </label>
+          <label class="radio">
+          <input type="radio" name="sidevent"  value='{"side_vent":"stop"}' data-toggle="radio" ng-change="postdata(side)" ng-model="side">
+           侧卷帘停
+          </label>
+      </div>
+
+      <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="shade_screen_south"  value='{"shade_screen_south":"on"}' data-toggle="radio" ng-change="postdata(shadeout)" ng-model="shadeout">
+            遮阳网南开
+          </label>
+          <label class="radio">
+          <input type="radio" name="shade_screen_south"  value='{"shade_screen_south":"off"}' data-toggle="radio" ng-change="postdata(shadeout)" ng-model="shadeout">
+           遮阳网南关
+          </label>
+          <label class="radio">
+          <input type="radio" name="shade_screen_south"  value='{"shade_screen_south":"stop"}' data-toggle="radio" ng-change="postdata(shadeout)" ng-model="shadeout">
+           遮阳网南停
+          </label>
+      </div>
+
+      <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="shade_screen_north"  value='{"shade_screen_north":"on"}' data-toggle="radio" ng-change="postdata(shadein)" ng-model="shadein">
+            遮阳网北开
+          </label>
+          <label class="radio">
+          <input type="radio" name="shade_screen_north"  value='{"shade_screen_north":"off"}' data-toggle="radio" ng-change="postdata(shadein)" ng-model="shadein">
+           遮阳网北关
+          </label>
+          <label class="radio">
+          <input type="radio" name="shade_screen_north"  value='{"shade_screen_north":"stop"}' data-toggle="radio" ng-change="postdata(shadein)" ng-model="shadein">
+           遮阳网北停
+          </label>
+      </div>
+
+      <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="thermal_screen"  value='{"thermal_screen":"on"}' data-toggle="radio" ng-change="postdata(thermal)" ng-model="thermal">
+            保温网开
+          </label>
+          <label class="radio">
+          <input type="radio" name="thermal_screen"  value='{"thermal_screen":"off"}' data-toggle="radio" ng-change="postdata(thermal)" ng-model="thermal">
+           保温网关
+          </label>
+          <label class="radio">
+          <input type="radio" name="thermal_screen"  value='{"thermal_screen":"stop"}' data-toggle="radio" ng-change="postdata(thermal)" ng-model="thermal">
+           保温网停
+          </label>
+      </div>
+
+</div>
+
+
+<div class="row">
+    <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="fogging"  value='{"fogging":"on"}' data-toggle="radio" ng-change="postdata(fog)" ng-model="fog">
+            喷雾开
+          </label>
+          <label class="radio">
+          <input type="radio" name="fogging"  value='{"fogging":"off"}' data-toggle="radio" ng-change="postdata(fog)" ng-model="fog">
+           喷雾关
+          </label>
+      </div>
+      <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="cooling_pump"  value='{"cooling_pump":"on"}' data-toggle="radio" ng-change="postdata(coolp)" ng-model="coolp">
+            湿帘水泵开
+          </label>
+          <label class="radio">
+          <input type="radio" name="cooling_pump"  value='{"cooling_pump":"off"}' data-toggle="radio" ng-change="postdata(coolp)" ng-model="coolp">
+           湿帘水泵关
+          </label>
+      </div>
+      <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="cooling_fan"  value='{"cooling_fan":"on"}' data-toggle="radio" ng-change="postdata(coolf)" ng-model="coolf">
+            湿帘风机开
+          </label>
+          <label class="radio">
+          <input type="radio" name="cooling_fan"  value='{"cooling_fan":"off"}' data-toggle="radio" ng-change="postdata(coolf)" ng-model="coolf">
+           湿帘风机关
+          </label>
+      </div>
+      <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="co2"  value='{"co2":"on"}' data-toggle="radio" ng-change="postdata(co2)" ng-model="co2">
+            co2开
+          </label>
+          <label class="radio">
+          <input type="radio" name="co2"  value='{"co2":"off"}' data-toggle="radio" ng-change="postdata(co2)" ng-model="co2">
+           co2关
+          </label>
+      </div>
+      <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="lighting_1"  value='{"lighting_1":"on"}' data-toggle="radio" ng-change="postdata(light_1)" ng-model="light_1">
+            补光1开
+          </label>
+          <label class="radio">
+          <input type="radio" name="lighting_1"  value='{"lighting_1":"off"}' data-toggle="radio" ng-change="postdata(light_1)" ng-model="light_1">
+           补光1关
+          </label>
+      </div>
+      <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="lighting_2"  value='{"lighting_2":"on"}' data-toggle="radio" ng-change="postdata(light_2)" ng-model="light_2">
+            补光2开
+          </label>
+          <label class="radio">
+             <input type="radio" name="lighting_2"  value='{"lighting_2":"off"}' data-toggle="radio" ng-change="postdata(light_2)" ng-model="light_2">
+           补光2关
+          </label>
+      </div>
+
+  </div>
+
+  <div class="row">
+
+      <!-- <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="irrigation"  value='{"irrigation":"on"}' data-toggle="radio" ng-change="postdata(irrigat)" ng-model="irrigat">
+            灌溉开
+          </label>
+          <label class="radio">
+          <input type="radio" name="irrigation"  value='{"irrigation":"off"}' data-toggle="radio" ng-change="postdata(irrigat)" ng-model="irrigat">
+           灌溉关
+          </label>
+      </div> -->
+
+      <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="heating"  value='{"heating":"on"}' data-toggle="radio" ng-change="postdata(heat)" ng-model="heat">
+            加热开
+          </label>
+          <label class="radio">
+          <input type="radio" name="heating"  value='{"heating":"off"}' data-toggle="radio" ng-change="postdata(heat)" ng-model="heat">
+           加热关
+          </label>
+      </div>
+      <div class="pallete-item">
+          <label class="radio">
+            <input type="radio" name="fan"  value='{"fan":"on"}' data-toggle="radio" ng-change="postdata(fann)" ng-model="fann">
+            匀风扇开
+          </label>
+          <label class="radio">
+          <input type="radio" name="fan"  value='{"fan":"off"}' data-toggle="radio" ng-change="postdata(fann)" ng-model="fann">
+          匀风扇关
+          </label>
+      </div>
+
+  </div>
+
+
+    </div>
+    <!-- /.container -->
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+  // $http.get("http://127.0.0.1:8020/indoor").success(function (response) {$scope.indoordata = response.indoor;});
+  // $http.get("http://127.0.0.1:8020/outdoor").success(function (response) {$scope.outdoordata = response.outdoor;});
+
+
+$scope.postdata=function(payload){var data2 = payload;var headers2 ={'Content-Type':'application/json; charset=UTF-8'};$http({method:'POST',url:'http://121.43.106.119:8020/control',headers:headers2,data:data2})
+          .success(function(response){$scope.temp=response;});   };
+
+
+  // $scope.get=function() { var data2 = {"roof_vent_south": "off"};var headers2 ={'Content-Type':'application/json'};$http({method:'POST',url:'http://127.0.0.1:8020/control',data:data2,headers:headers2})
+  //         .success(function(response){$scope.temp=response;});   };
+  
+  });
+</script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>diagraph</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/flat-ui.css" rel="stylesheet">
+<link href="css/diy.css" rel="stylesheet">
+<link rel="shortcut icon" href="img/favicon.ico">
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/flat-ui.min.js"></script>
+<script src="assets/js/application.js"></script>
+<script src="js/highcharts/highcharts.js"></script>
+<script src="js/highcharts/modules/exporting.js"></script>
+
+
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        title: {
+            text: 'Temperature',
+            x: -20 //center
+        },
+        subtitle: {
+            text: '节点1温度',
+            x: -20
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: 'Temperature (°C)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '°C'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        'series': [{
+            'name': 'node_1',
+            'data': [7.0, 9.2, 9.5, 14.5, 25.2, 29.5, 30.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+        }]
+    });
+});
+    </script>
+  </head>
+  <body>
+    <div class="container" ng-app="myApp" ng-controller="customersCtrl">
+   <h3> 温室 <small>tongji</small></h3>
+      <div class="row">
+        <div class="col-xs-12">
+          <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                <span class="sr-only">Toggle navigation</span>
+              </button>
+              <a class="navbar-brand" href="indoor.html">首页</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-01">
+              <ul class="nav navbar-nav navbar-left">
+                   <li><a href="indoor.html">室内外数据</a></li>
+                    <li><a href="action.html">执行机构</a></li>
+                    <li><a href="diagraph.html">图表</a></li>
+                    <li><a href="#">关于</a></li>
+                  </ul>
+
+               
+               <ul class="nav navbar-nav navbar-right">
+                <li><a href="login.html"><span class="fui-user"></span>登录</a></li>
+                  
+                      
+              </ul> 
+            </div><!-- /.navbar-collapse -->
+          </nav><!-- /navbar -->
+        </div>
+      </div> <!-- /row -->
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+
+    </div>
+    <!-- /.container -->
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+  $http.get("http://127.0.0.1:8020/indoor").success(function (response) {$scope.indoordata = response.indoor;});
+  $http.get("http://127.0.0.1:8020/outdoor").success(function (response) {$scope.outdoordata = response.outdoor;});
+
+
+$scope.postdata=function(payload){var data2 = payload;var headers2 ={'Content-Type':'application/json; charset=UTF-8'};$http({method:'POST',url:'http://127.0.0.1:8020/control',headers:headers2,data:data2})
+          .success(function(response){$scope.temp=response;});   };
+
+
+  // $scope.get=function() { var data2 = {"roof_vent_south": "off"};var headers2 ={'Content-Type':'application/json'};$http({method:'POST',url:'http://127.0.0.1:8020/control',data:data2,headers:headers2})
+  //         .success(function(response){$scope.temp=response;});   };
+  
+  });
+</script>
+  </body>
+</html>
