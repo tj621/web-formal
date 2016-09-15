@@ -13,50 +13,10 @@
 <script src="js/flat-ui.min.js"></script>
 <script src="assets/js/application.js"></script>
 <script src="js/highcharts/highcharts.js"></script>
-<script src="js/highcharts/modules/exporting.js"></script>
+<!-- <script src="js/highcharts/modules/exporting.js"></script> -->
+<script src="jeDate/jedate.js"></script>
+<!-- <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular-animate.min.js"></script> -->
 
-
-<script type="text/javascript">
-$(function () {
-    $('#container').highcharts({
-        title: {
-            text: 'Temperature',
-            x: -20 //center
-        },
-        subtitle: {
-            text: '节点1温度',
-            x: -20
-        },
-        xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        },
-        yAxis: {
-            title: {
-                text: 'Temperature (°C)'
-            },
-            plotLines: [{
-                value: 0,
-                width: 1,
-                color: '#808080'
-            }]
-        },
-        tooltip: {
-            valueSuffix: '°C'
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0
-        },
-        'series': [{
-            'name': 'node_1',
-            'data': [7.0, 9.2, 9.5, 14.5, 25.2, 29.5, 30.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-        }]
-    });
-});
-    </script>
   </head>
   <body>
     <div class="container" ng-app="myApp" ng-controller="customersCtrl">
@@ -68,11 +28,11 @@ $(function () {
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
                 <span class="sr-only">Toggle navigation</span>
               </button>
-              <a class="navbar-brand" href="indoor.html">首页</a>
+              <a class="navbar-brand" href="index.html">首页</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse-01">
               <ul class="nav navbar-nav navbar-left">
-                   <li><a href="indoor.html">室内外数据</a></li>
+                    <li><a href="indoor.html">室内外数据</a></li>
                     <li><a href="action.html">执行机构</a></li>
                     <li><a href="diagraph.html">图表</a></li>
                     <li><a href="#">关于</a></li>
@@ -89,28 +49,456 @@ $(function () {
         </div>
       </div> <!-- /row -->
 
+
+      <div ng-show="showsome">
+         
+  <div class="col-xs-1">
+       <label class="checkbox" for="checkbox1">
+            <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox" ng-model="ck1">
+            节点1-光照
+          </label>
+           <label class="checkbox" for="checkbox2">
+            <input type="checkbox" value="" id="checkbox2" data-toggle="checkbox" ng-model="ck2">
+            节点1-温度
+          </label>
+           <label class="checkbox" for="checkbox3">
+            <input type="checkbox" value="" id="checkbox3" data-toggle="checkbox" ng-model="ck3">
+            节点1-湿度
+          </label>
+           <label class="checkbox" for="checkbox4">
+            <input type="checkbox" value="" id="checkbox4" data-toggle="checkbox" ng-model="ck4">
+            节点1-co2
+          </label>
+           
+           
+    </div>
+    <div class="col-xs-1">
+      <label class="checkbox" for="checkbox5">
+            <input type="checkbox" value="" id="checkbox5" data-toggle="checkbox" ng-model="ck5">
+           节点2-光照
+          </label>
+       <label class="checkbox" for="checkbox6">
+            <input type="checkbox" value="" id="checkbox6" data-toggle="checkbox" ng-model="ck6">
+            节点2-温度
+          </label>
+           <label class="checkbox" for="checkbox7">
+            <input type="checkbox" value="" id="checkbox7" data-toggle="checkbox" ng-model="ck7">
+             节点2-湿度
+          </label>
+           <label class="checkbox" for="checkbox8">
+            <input type="checkbox" value="" id="checkbox8" data-toggle="checkbox" ng-model="ck8">
+             节点2-co2
+          </label>
+          
+    </div>
+     <div class="col-xs-1">
+       <label class="checkbox" for="checkbox9">
+            <input type="checkbox" value="" id="checkbox9" data-toggle="checkbox" ng-model="ck9">
+             节点3-光照
+          </label>
+       <label class="checkbox" for="checkbox10">
+            <input type="checkbox" value="" id="checkbox10" data-toggle="checkbox" ng-model="ck10">
+             节点3-温度
+          </label>
+           <label class="checkbox" for="checkbox11">
+            <input type="checkbox" value="" id="checkbox11" data-toggle="checkbox" ng-model="ck11">
+             节点3-湿度
+          </label>
+           <label class="checkbox" for="checkbox12">
+            <input type="checkbox" value="" id="checkbox12" data-toggle="checkbox" ng-model="ck12">
+             节点3-co2
+          </label>           
+    </div>
+    <div class="col-xs-1">
+       <label class="checkbox" for="checkbox13">
+            <input type="checkbox" value="" id="checkbox13" data-toggle="checkbox" ng-model="ck13">
+             节点4-光照
+          </label>
+       <label class="checkbox" for="checkbox14">
+            <input type="checkbox" value="" id="checkbox14" data-toggle="checkbox" ng-model="ck14">
+             节点4-温度
+          </label>
+           <label class="checkbox" for="checkbox15">
+            <input type="checkbox" value="" id="checkbox15" data-toggle="checkbox" ng-model="ck15">
+             节点4-湿度
+          </label>
+           <label class="checkbox" for="checkbox16">
+            <input type="checkbox" value="" id="checkbox16" data-toggle="checkbox" ng-model="ck16">
+             节点4-co2
+          </label>           
+    </div>
+    <div class="col-xs-1">
+       <label class="checkbox" for="checkbox17">
+            <input type="checkbox" value="" id="checkbox17" data-toggle="checkbox" ng-model="ck17">
+             节点5-光照
+          </label>
+       <label class="checkbox" for="checkbox18">
+            <input type="checkbox" value="" id="checkbox18" data-toggle="checkbox" ng-model="ck18">
+             节点5-温度
+          </label>
+           <label class="checkbox" for="checkbox19">
+            <input type="checkbox" value="" id="checkbox19" data-toggle="checkbox" ng-model="ck19">
+             节点5-湿度
+          </label>
+           <label class="checkbox" for="checkbox20">
+            <input type="checkbox" value="" id="checkbox20" data-toggle="checkbox" ng-model="ck20">
+             节点5-co2
+          </label>           
+    </div>
+    <div class="col-xs-1">
+       <label class="checkbox" for="checkbox21">
+            <input type="checkbox" value="" id="checkbox21" data-toggle="checkbox" ng-model="ck21">
+             节点6-光照
+          </label>
+       <label class="checkbox" for="checkbox22">
+            <input type="checkbox" value="" id="checkbox22" data-toggle="checkbox" ng-model="ck22">
+             节点6-温度
+          </label>
+           <label class="checkbox" for="checkbox23">
+            <input type="checkbox" value="" id="checkbox23" data-toggle="checkbox" ng-model="ck23">
+             节点6-湿度
+          </label>
+           <label class="checkbox" for="checkbox24">
+            <input type="checkbox" value="" id="checkbox24" data-toggle="checkbox" ng-model="ck24">
+             节点6-co2
+          </label>           
+    </div>
+    <div class="col-xs-1">
+       <label class="checkbox" for="checkbox25">
+            <input type="checkbox" value="" id="checkbox25" data-toggle="checkbox" ng-model="ck25">
+             节点7-光照
+          </label>
+       <label class="checkbox" for="checkbox26">
+            <input type="checkbox" value="" id="checkbox26" data-toggle="checkbox" ng-model="ck26">
+             节点7-温度
+          </label>
+           <label class="checkbox" for="checkbox27">
+            <input type="checkbox" value="" id="checkbox27" data-toggle="checkbox" ng-model="ck27">
+             节点7-湿度
+          </label>
+           <label class="checkbox" for="checkbox28">
+            <input type="checkbox" value="" id="checkbox28" data-toggle="checkbox" ng-model="ck28">
+             节点7-co2
+          </label>           
+    </div>
+    <div class="col-xs-1">
+       <label class="checkbox" for="checkbox29">
+            <input type="checkbox" value="" id="checkbox29" data-toggle="checkbox" ng-model="ck29">
+             节点8-光照
+          </label>
+       <label class="checkbox" for="checkbox30">
+            <input type="checkbox" value="" id="checkbox30" data-toggle="checkbox" ng-model="ck30">
+             节点8-温度
+          </label>
+           <label class="checkbox" for="checkbox31">
+            <input type="checkbox" value="" id="checkbox31" data-toggle="checkbox" ng-model="ck31">
+             节点8-湿度
+          </label>
+           <label class="checkbox" for="checkbox32">
+            <input type="checkbox" value="" id="checkbox32" data-toggle="checkbox" ng-model="ck32">
+             节点8-co2
+          </label>           
+    </div>
+    <div class="col-xs-1">
+       <label class="checkbox" for="checkbox33">
+            <input type="checkbox" value="" id="checkbox33" data-toggle="checkbox" ng-model="ck33">
+             室外-光照
+          </label>
+       <label class="checkbox" for="checkbox34">
+            <input type="checkbox" value="" id="checkbox34" data-toggle="checkbox" ng-model="ck34">
+             室外-温度
+          </label>
+           <label class="checkbox" for="checkbox35">
+            <input type="checkbox" value="" id="checkbox35" data-toggle="checkbox" ng-model="ck35">
+             室外-湿度
+          </label>
+           <label class="checkbox" for="checkbox36">
+            <input type="checkbox" value="" id="checkbox36" data-toggle="checkbox" ng-model="ck36">
+             室外-co2
+          </label>           
+    </div>
+    <div class="col-xs-1">
+       <label class="checkbox" for="checkbox37">
+            <input type="checkbox" value="" id="checkbox37" data-toggle="checkbox" ng-model="ck37">
+             室外-风向
+          </label>
+       <label class="checkbox" for="checkbox38">
+            <input type="checkbox" value="" id="checkbox38" data-toggle="checkbox" ng-model="ck38">
+             室外-风速
+          </label>
+           <label class="checkbox" for="checkbox39">
+            <input type="checkbox" value="" id="checkbox39" data-toggle="checkbox" ng-model="ck39">
+             室外-雨量
+          </label>
+           <label class="checkbox" for="checkbox40">
+            <input type="checkbox" value="" id="checkbox40" data-toggle="checkbox" ng-model="ck40">
+            室外-大气压
+          </label>           
+    </div>
+    <div class="col-xs-3">
+          开始日期<input  id="indate1" type="text" placeholder="请选择起始日期"><br>
+          
+          
+    </div>
+    <div class="col-xs-3">
+         
+          结束日期<input  id="indate2" type="text" placeholder="请选择结束日期">
+           
+    </div>
+    <div class="col-xs-3">
+         
+          
+           <button ng-click="postdata()">确认</button>
+    </div>
+
+
+      </div>  <!-- end ng showsome -->
+
+  
+
+
+
+   <button ng-click="dd()" ng-show="showbutton"><span class="fui-list">数据源</span></button>
+   
+
+ 
+
+
+
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
-
+   
+  <!--  测试 -->
+ <!--    1{{ck1}}
+    2{{needdata}}
+    3{{curvedata.series}}
+    4:{{me}}
+ -->
     </div>
     <!-- /.container -->
 
-
 <script>
-var app = angular.module('myApp', []);
+ var app = angular.module('myApp', []);
+// var app = angular.module('myApp', ['ngAnimate']);
 app.controller('customersCtrl', function($scope, $http) {
-  $http.get("http://127.0.0.1:8020/indoor").success(function (response) {$scope.indoordata = response.indoor;});
-  $http.get("http://127.0.0.1:8020/outdoor").success(function (response) {$scope.outdoordata = response.outdoor;});
+//   $http.get("http://127.0.0.1:8020/indoor").success(function (response) {$scope.indoordata = response.indoor;});
+//   $http.get("http://127.0.0.1:8020/outdoor").success(function (response) {$scope.outdoordata = response.outdoor;});
+$scope.showbutton=true;
+ $scope.ck1=false;
+$scope.ck2=false;
+$scope.ck3=false;
+$scope.ck4=false;
+$scope.ck5=false;
+$scope.ck6=false;
+$scope.ck7=false;
+$scope.ck8=false;
+$scope.ck9=false;
+$scope.ck10=false;
+ $scope.ck11=false;
+$scope.ck12=false;
+$scope.ck13=false;
+$scope.ck14=false;
+$scope.ck15=false;
+$scope.ck16=false;
+$scope.ck17=false;
+$scope.ck18=false;
+$scope.ck19=false;
+$scope.ck20=false;
+ $scope.ck21=false;
+$scope.ck22=false;
+$scope.ck23=false;
+$scope.ck24=false;
+$scope.ck25=false;
+$scope.ck26=false;
+$scope.ck27=false;
+$scope.ck28=false;
+$scope.ck29=false;
+$scope.ck30=false;
+ $scope.ck31=false;
+$scope.ck32=false;
+$scope.ck33=false;
+$scope.ck34=false;
+$scope.ck35=false;
+$scope.ck36=false;
+$scope.ck37=false;
+$scope.ck38=false;
+$scope.ck39=false;
+$scope.ck40=false;
+$scope.curvedata=0;
 
 
-$scope.postdata=function(payload){var data2 = payload;var headers2 ={'Content-Type':'application/json; charset=UTF-8'};$http({method:'POST',url:'http://127.0.0.1:8020/control',headers:headers2,data:data2})
-          .success(function(response){$scope.temp=response;});   };
+
+// start of first 获取节点一的所有数据 时间2016-8-21 -------2016-8-22
+var first={'node1_radiation':true,'node1_temperature':true,'node1_humidity':true,'node1_co2':true,
+'node2_radiation':$scope.ck5,'node2_temperature':$scope.ck6,'node2_humidity':$scope.ck7,'node2_co2':$scope.ck8,
+'node3_radiation':$scope.ck9,'node3_temperature':$scope.ck10,'node3_humidity':$scope.ck11,'node3_co2':$scope.ck12,
+'node4_radiation':$scope.ck13,'node4_temperature':$scope.ck14,'node4_humidity':$scope.ck15,'node4_co2':$scope.ck16,
+'node5_radiation':$scope.ck17,'node5_temperature':$scope.ck18,'node5_humidity':$scope.ck19,'node5_co2':$scope.ck20,
+'node6_radiation':$scope.ck21,'node6_temperature':$scope.ck22,'node6_humidity':$scope.ck23,'node6_co2':$scope.ck24,
+'node7_radiation':$scope.ck25,'node7_temperature':$scope.ck26,'node7_humidity':$scope.ck27,'node7_co2':$scope.ck28,
+'node8_radiation':$scope.ck29,'node8_temperature':$scope.ck30,'node8_humidity':$scope.ck31,'node8_co2':$scope.ck32,
+'outdoor_radiation':$scope.ck33,'outdoor_temperature':$scope.ck34,'outdoor_humidity':$scope.ck35,'outdoor_co2':$scope.ck36,
+'outdoor_wind_direction':$scope.ck37,'outdoor_wind_speed':$scope.ck38,'outdoor_rain':$scope.ck39,'outdoor_atmosphere':$scope.ck40,
+'start':jeDate.now(0),'stop':jeDate.now(0)
+};
+
+var headers2 ={'Content-Type':'application/json; charset=UTF-8'};
+$http({method:'POST',url:'http://121.43.106.119:8020/series',headers:headers2,data:first})
+          .success(function(response){$scope.curvefirst=response;
+
+var firsttry=$scope.curvefirst.series;
+$('#container').highcharts({
+        title: {
+            text: '温室节点数据',
+            x: -20 //center
+        },
+        subtitle: {
+            text: '',
+            x: -20
+        },
+       xAxis: {
+            type: 'datetime'
+          },
+        yAxis: {
+            title: {
+                text: 'y'
+            },
+             min: 0,
+            minPadding: 0.2,
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series:firsttry
+    });
+
+
+
+          }); 
+
+
+// end of firsttry
+
+// start of postdata  发送并接收·显示曲线
+$scope.postdata=function(){
+$scope.showsome=false;
+$scope.showbutton=true;
+
+var tempdate1=document.getElementById("indate1");
+var date1=new Date(tempdate1.value);
+var startmonth=date1.getMonth()+1;
+var startday=date1.getDate();
+var startyear=date1.getFullYear();
+
+var tempdate2=document.getElementById("indate2");
+var date2=new Date(tempdate2.value);
+var stopmonth=date2.getMonth()+1;
+var stopday=date2.getDate();
+var stopyear=date2.getFullYear();
+
+$scope.needdata={'node1_radiation':$scope.ck1,'node1_temperature':$scope.ck2,'node1_humidity':$scope.ck3,'node1_co2':$scope.ck4,
+'node2_radiation':$scope.ck5,'node2_temperature':$scope.ck6,'node2_humidity':$scope.ck7,'node2_co2':$scope.ck8,
+'node3_radiation':$scope.ck9,'node3_temperature':$scope.ck10,'node3_humidity':$scope.ck11,'node3_co2':$scope.ck12,
+'node4_radiation':$scope.ck13,'node4_temperature':$scope.ck14,'node4_humidity':$scope.ck15,'node4_co2':$scope.ck16,
+'node5_radiation':$scope.ck17,'node5_temperature':$scope.ck18,'node5_humidity':$scope.ck19,'node5_co2':$scope.ck20,
+'node6_radiation':$scope.ck21,'node6_temperature':$scope.ck22,'node6_humidity':$scope.ck23,'node6_co2':$scope.ck24,
+'node7_radiation':$scope.ck25,'node7_temperature':$scope.ck26,'node7_humidity':$scope.ck27,'node7_co2':$scope.ck28,
+'node8_radiation':$scope.ck29,'node8_temperature':$scope.ck30,'node8_humidity':$scope.ck31,'node8_co2':$scope.ck32,
+'outdoor_radiation':$scope.ck33,'outdoor_temperature':$scope.ck34,'outdoor_humidity':$scope.ck35,'outdoor_co2':$scope.ck36,
+'outdoor_wind_direction':$scope.ck37,'outdoor_wind_speed':$scope.ck38,'outdoor_rain':$scope.ck39,'outdoor_atmosphere':$scope.ck40,
+'start':tempdate1.value,'stop':tempdate2.value
+};
+
+var headers2 ={'Content-Type':'application/json; charset=UTF-8'};
+$http({method:'POST',url:'http://121.43.106.119:8020/series',headers:headers2,data:$scope.needdata})
+          .success(function(response){$scope.curvedata=response;
+
+var me=$scope.curvedata.series;
+$('#container').highcharts({
+        title: {
+            text: '温室节点数据',
+            x: -20 //center
+        },
+        subtitle: {
+            text: '',
+            x: -20
+        },
+       xAxis: {
+            type: 'datetime',
+            dateTimeLabelFormats: {
+                 minute: '%H:%M'
+            }
+          },
+        yAxis: {
+            title: {
+                text: 'y'
+            },
+             min: 0,
+            minPadding: 0.2,
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series:me
+    });
+
+
+
+          }); 
+// end of postdata
+
+};
+$scope.dd=function(){$scope.showsome=true;$scope.showbutton=false};
 
 
   // $scope.get=function() { var data2 = {"roof_vent_south": "off"};var headers2 ={'Content-Type':'application/json'};$http({method:'POST',url:'http://127.0.0.1:8020/control',data:data2,headers:headers2})
   //         .success(function(response){$scope.temp=response;});   };
   
   });
+</script>
+
+<script >
+    jeDate.skin('gray');
+var start = {
+    dateCell: '#indate1',
+    format: 'YYYY-MM-DD',
+    minDate: '2016-01-01', //设定最小日期为当前日期
+    maxDate: '2099-06-30 23:59:59', //最大日期
+    choosefun: function(val){
+        end.minDate = val; //开始日选好后，重置结束日的最小日期
+         jeDate(end);
+
+    }
+};
+var end = {
+    dateCell: '#indate2',
+    format: 'YYYY-MM-DD',
+    minDate: '2016-01-01', //设定最小日期为当前日期
+    maxDate: '2099-06-16 23:59:59', //最大日期
+    choosefun: function(val){
+        // start.maxDate = document.getElementById("indate2").value; //将结束日的初始值设定为开始日的最大日期
+        start.maxDate=val;
+         jeDate(start);
+    }
+};
+jeDate(start);
+jeDate(end);
+
 </script>
   </body>
 </html>
